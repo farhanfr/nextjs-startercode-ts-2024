@@ -1,8 +1,16 @@
+"use client"
+
+import { Typography } from 'antd'
+import { useSession } from 'next-auth/react'
 import React from 'react'
 
+const {Title} = Typography
 const DashboardPage = () => {
+  const {data:session,status} = useSession()
   return (
-    <div>Selamat datang ....</div>
+    <>
+      <Title level={4}>Selamat Datang {session?.user?.name}</Title>
+    </>
   )
 }
 

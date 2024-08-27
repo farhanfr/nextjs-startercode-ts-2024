@@ -1,6 +1,6 @@
 "use client"
 
-import { fetchDetailArticle } from '@/services/article'
+import { fetchDetailArticle, getSlugsArticle } from '@/services/article'
 import { IArticle } from '@/types/article'
 import { AlertError } from '@/utils/extension'
 import { Divider, Space, Spin, Typography } from 'antd'
@@ -17,6 +17,7 @@ const DetailArticlePage = ({ params }: { params: { slug: string } }) => {
 
     const handleFetchArticle = async () => {
         setIsLoading(true)
+        // await getSlugsArticle()
         const result = await fetchDetailArticle(params.slug)
         if (result.success) {
             setArticle(result.data)
