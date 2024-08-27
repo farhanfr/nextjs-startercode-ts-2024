@@ -1,10 +1,10 @@
 import { getSlugsArticle } from '@/services/article'
 import React from 'react'
 
-// export const generateStaticParams = async() => {
-//     const slugs = await getSlugsArticle()
-//     return slugs
-// }
+export const generateStaticParams = async() => {
+    const slugs = await getSlugsArticle()
+    return slugs.map((slug:string) => ({ slug }))
+}
 
 export const generateMetadata = () => {
     return {
